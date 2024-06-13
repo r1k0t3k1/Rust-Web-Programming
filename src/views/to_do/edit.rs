@@ -9,8 +9,10 @@ use crate::json_serialization::{
     to_do_item::ToDoItem,
     to_do_items::ToDoItems,
 };
+use crate::jwt::JwToken;
 
-pub async fn edit(to_do_item: web::Json<ToDoItem>) -> HttpResponse {
+pub async fn edit(to_do_item: web::Json<ToDoItem>, token: JwToken) -> HttpResponse {
+    println!("Here is the message in the token: {}", token.message);
     if &to_do_item.status != "DONE" || &to_do_item.status != "PENDING" {
         return HttpResponse::BadRequest().finish();
     }
