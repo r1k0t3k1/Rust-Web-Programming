@@ -1,3 +1,6 @@
+use serde::ser::{ Serialize, Serializer, SerializeStruct }; 
+
+#[derive(Clone)]
 pub enum TaskStatus {
     DONE,
     PENDING,
@@ -19,3 +22,11 @@ impl TaskStatus {
         }
     }
 }
+
+impl Serialize for TaskStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+        where S: Serializer, {
+            Ok(serializer.serialize_str(&self.stringify().as_str())?)
+    }
+}
+
