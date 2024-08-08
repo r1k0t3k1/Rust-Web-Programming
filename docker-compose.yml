@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db:
+    container_name: "postgres"
+    image: postgres
+    environment:
+      - "POSTGRES_USER=todo"
+      - "POSTGRES_DB=todo"
+      - "POSTGRES_PASSWORD=todo"
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+  app:
+    container_name: "rust"
+    build: ./app
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/app
