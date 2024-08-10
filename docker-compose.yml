@@ -1,7 +1,6 @@
-version: "3.8"
 services:
   db:
-    container_name: "postgres"
+    container_name: "db"
     image: postgres
     environment:
       - "POSTGRES_USER=todo"
@@ -10,9 +9,13 @@ services:
     volumes:
       - ./db/data:/var/lib/postgresql/data
   app:
-    container_name: "rust"
+    container_name: "app"
     build: ./app
     ports:
       - "9000:9000"
     volumes:
-      - ./app:/app
+      - type: bind
+        source: ./app
+        target: /app
+    entrypoint: |
+      sh -c "/app/target/release/rust-web-programming"
