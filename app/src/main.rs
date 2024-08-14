@@ -10,6 +10,8 @@ mod json_serialization;
 mod jwt;
 
 mod database;
+mod models;
+mod schema;
 
 use actix_web::{ App, HttpServer };
 use actix_service::Service;
