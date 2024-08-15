@@ -1,7 +1,6 @@
 pub mod enums;
 pub mod create;
 pub mod structs;
-pub mod traits;
 
 use enums::TaskStatus;
 use structs::done::Done;

@@ -14,3 +14,4 @@ futures = "0.3.30"
 diesel = { version = "2.2.2" , features = ["postgres", "chrono", "r2d2"] }
 dotenv = "0.15.0"
 chrono = "0.4.38"
+yaml-rust2 = "0.8"

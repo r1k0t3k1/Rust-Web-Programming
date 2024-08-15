@@ -17,5 +17,3 @@ services:
       - type: bind
         source: ./app
         target: /app
-    entrypoint: |
-      sh -c "/app/target/release/rust-web-programming"
