@@ -1156,6 +1156,7 @@ dependencies = [
  "diesel",
  "dotenv",
  "futures",
+ "once_cell",
  "serde",
  "serde_json",
  "yaml-rust2",
